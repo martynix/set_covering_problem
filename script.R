@@ -1,5 +1,5 @@
-setwd('C:/Users/marty/Desktop/GITHUB/proj_optymal')
-
+#setwd('C:/Users/marty/Desktop/GITHUB/proj_optymal')
+setwd('/Users/mateuszpindyk/Documents/GitHub/set_covering_problem')
 n_rows <- sample(1:50, 1)
 n_cols <- sample(1:50, 1)
 
@@ -8,13 +8,25 @@ n_elements <- sample(1:50, 1)
 matrix1 <- matrix(sample(c(0, 1), n_rows*n_cols, replace = TRUE), ncol = n_cols)
 matrix1
 
-col_names <- rep(LETTERS, length.out = n_cols)
+col_names <- c()
+for (i in LETTERS) {
+  for (j in LETTERS){
+    col_names <- append(col_names, paste(i,j))
+    if (length(col_names) == n_cols){
+      break
+    }
+  }
+  if (length(col_names) == n_cols){
+    break
+  }
+}
+
 colnames(matrix1) <- col_names[1:n_cols]
 rownames(matrix1) <- 1:n_rows
 
 dane <- matrix1
 dane<-as.data.frame(dane)
-dane
+View(dane)
 dane_temp<-dane
 
 wysokosc<-as.numeric(length(t(dane))/length(dane))
