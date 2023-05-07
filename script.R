@@ -1,5 +1,24 @@
 #setwd('C:/Users/marty/Desktop/GITHUB/set_covering_problem')
 #setwd('/Users/mateuszpindyk/Documents/GitHub/set_covering_problem')
+
+#dla przykładu ze sprawozdania
+k1<-c(1,1,1,0,0,0,0,0,0,0,0)
+k2<-c(0,1,1,1,1,0,0,0,0,0,0)
+k3<-c(0,1,0,0,1,0,1,0,0,0,0)
+k4<-c(0,0,0,0,1,1,1,1,1,0,0)
+k5<-c(0,0,0,0,0,0,0,1,1,1,0)
+k6<-c(0,0,0,0,0,0,0,1,0,1,1)
+k7<-c(0,0,0,1,1,1,0,0,0,0,0)
+
+m<- (data.frame(k1,k2,k3,k4,k5,k6,k7))
+l<-c("A","B","C","D","E", "F", "G")
+colnames(m)<- l
+rownames(m) <- c(1,2,3,4,5,6,7,8,9,10,11)
+m
+
+###################
+#generowanie losowej macierzy 
+
 n_rows <- sample(1:50, 1)
 n_cols <- sample(1:50, 1)
 
@@ -25,6 +44,7 @@ colnames(matrix1) <- col_names[1:n_cols]
 rownames(matrix1) <- 1:n_rows
 
 dane <- matrix1
+#dane <- m #dla przykładu ze sprawozdania
 dane<-as.data.frame(dane)
 View(dane)
 dane_temp<-dane
